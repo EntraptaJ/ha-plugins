@@ -94,14 +94,25 @@ def create_and_get_tts(ha_config: HaConfig, message: str, language: str) -> tupl
         error_file_name = os.path.join(constants.ROOT_PATH, 'sound/answer.wav')
         return error_file_name, False
     response_deserialized = create_response.json()
-    mp3_url = response_deserialized['url']
-    mp3_response = requests.get(mp3_url, headers=headers)
-    wav_file_name = audio.convert_mp3_stream_to_wav(mp3_response.content)
-    if not wav_file_name:
-        log(None, 'Error converting to wav: %s' % wav_file_name)
-        error_file_name = os.path.join(constants.ROOT_PATH, 'sound/answer.wav')
-        return error_file_name, False
-    return wav_file_name, True
+
+
+    tts_url = response_deserialized['url']
+    tts_response = requests.get(tts_url, headers=headers)
+
+    if tts_url.endswith(".wav"):
+        wav_file_handler = tempfile.NamedTemporaryFile(suffix='.wav')
+        wav_file_handler.write(tts_response.content)
+        wav_file_handler.flush()
+        wav_file = audio.convert_audio_to_wav(wav_file_handler.name)
+        return wav_file, True
+    else:
+        wav_file_name = audio.convert_mp3_stream_to_wav(tts_response.content)
+
+        if not wav_file_name:
+            log(None, 'Error converting to wav: %s' % wav_file_name)
+            error_file_name = os.path.join(constants.ROOT_PATH, 'sound/answer.wav')
+            return error_file_name, False
+        return wav_file_name, True
 
 
 def call_service(ha_config: HaConfig, domain: str, service: str, entity_id: str) -> None:

@@ -61,10 +61,10 @@ def handle_command(
             log(None, 'Error: Missing number for command "answer"')
             return
         log(None, 'Got "answer" command for %s' % number)
-        if not call_state.is_active(number):
+        if not call_state.is_active("+" + number):
             log(None, 'Warning: call not in progress: %s' % number)
             return
-        current_call = call_state.get_call(number)
+        current_call = call_state.get_call("+" + number)
         current_call.answer_call(menu)
     elif verb == 'send_dtmf':
         if not number:
