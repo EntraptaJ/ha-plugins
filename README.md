@@ -1,6 +1,6 @@
 # ![logo](icon.png) ha-sip 
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Farnonym%2Fha-plugins)
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fkristinefjones%2Fha-plugins)
 
 ### Home Assistant SIP/VoIP Gateway is a Home Assistant add-on which 
 - allows the dialing and hanging up of phone numbers through a SIP end-point 
@@ -15,7 +15,7 @@
 This add-on is for the Home Assistant OS or supervised installation methods mentioned in
 https://www.home-assistant.io/installation/. With that in place you can install this third-party plug-in like described in
 https://www.home-assistant.io/common-tasks/os#installing-third-party-add-ons. The repository URL is
-`https://github.com/arnonym/ha-plugins`.
+`https://github.com/KristineFJ/ha-plugins`.
 
 After that you need to configure your SIP account(s), TTS parameters and webhook ID. The default configuration looks like this:
 

@@ -2,7 +2,7 @@
     "name": "ha-sip",
     "version": "2.7",
     "slug": "ha-sip",
-    "url": "https://github.com/arnonym/ha-plugins",
+    "url": "https://github.com/KristineFJ/ha-plugins",
     "description": "Home-Assistant SIP Gateway",
     "arch": [
         "aarch64"
