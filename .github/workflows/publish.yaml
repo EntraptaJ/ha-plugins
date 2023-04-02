@@ -15,6 +15,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Move cache
+        run: |
+          docker pull kristianfjones/aarch64-ha-sip:latest
       - name: Publish
         uses: home-assistant/builder@master
         with:
