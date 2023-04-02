@@ -21,4 +21,5 @@ jobs:
           args: |
             --aarch64 \
             --target ha-sip \
+            --self-cache \
             --docker-hub kristianfjones
